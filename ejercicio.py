@@ -5,22 +5,11 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 from scipy.stats import linregress
 
-## ATENCION: Debe colocar la direccion en la que ha sido publicada la aplicacion en la siguiente linea\
-# url = 'https://tp8-58777-tut9bi2u9wrbzbhbmkidbx.streamlit.app'
-
-def mostrar_informacion_alumno():
-    with st.container(border=True):
-        st.markdown('**Legajo:** 58.777')
-        st.markdown('**Nombre:** Alan Jassán')
-        st.markdown('**Comisión:** C2')
-
 st.sidebar.title("Carga de Archivo")
 archivo_cargado = st.sidebar.file_uploader("Sube un archivo CSV", type="csv")
 
 if archivo_cargado is None:
     st.title("Por favor, sube un archivo CSV desde la barra lateral.")
-    with st.container():
-        mostrar_informacion_alumno()
 else:
     df = pd.read_csv(archivo_cargado)
     
